@@ -6,14 +6,33 @@
 			"include": "#keywords"
 		},
 		{
-			"include": "#strings"
+			"name": "string.quoted.double.ego",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.ego",
+					"match": "\\\\."
+				}
+			]
+		},
+		{
+			"name": "string.quoted.backtick.ego",
+			"begin": "`",
+			"end": "`",
+			"patterns": [
+				{
+					"name": "constant.character.escape.ego",
+					"match": "\\\\."
+				}
+			]
 		}
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.ego",
-				"match": "\\b(if|while|for|return)\\b"
+				"match": "\\b(while|for|do|if|else|switch|try|catch|finally|break|<||continue||>|return|ret|=>|throw|=>>|trickle|~>|goto|->>|await|yield)\\b"
 			}]
 		},
 		"strings": {
