@@ -1,0 +1,37 @@
+module Test
+
+import {
+  Props { A }
+  std::annotations::InstanceOf as InstanceOf
+}
+
+[InstanceOf]
+public class B<K is Interfaces::Hash,V> is A<V>, C<K> {
+  public () {
+    super(10)
+  }
+
+  u32 Prop: 100 {
+      get => field
+      set {
+          print("prop set")
+          field: value
+      }
+  }
+
+  hello() {
+    print("Hello ${Prop::field}")
+  }
+
+  i32 main(List<?> args) {
+    hello()
+    this.hello()
+    this->hello()
+    (@this).hello()
+    => 0
+  }
+
+  virtual ~ {
+    print("~B")
+  }
+}
