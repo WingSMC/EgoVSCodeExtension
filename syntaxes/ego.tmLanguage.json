@@ -32,7 +32,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.ego",
-				"match": "\\b(while|for|do|if|else|switch|try|catch|finally|break|<||continue||>|return|ret|=>|throw|=>>|trickle|~>|goto|->>|await|yield)\\b"
+				"match": "\\b(while|for|do|if|else|switch|try|catch|finally|break|<\\||continue|\\|>|return|ret|=>|throw|=>>|trickle|~>|goto|->>|await|yield)\\b"
 			}]
 		},
 		"strings": {
