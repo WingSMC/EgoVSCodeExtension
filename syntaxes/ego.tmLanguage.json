@@ -1,152 +1,131 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Ego",
+	"scopeName": "source.ego",
 	"patterns": [
 		{ "include": "#comments" },
 		{ "include": "#operators" },
 		{ "include": "#strings" },
-		{ "include": "#numbers" },
 		{ "include": "#keywords" },
 		{ "include": "#types" },
+		{ "include": "#literals" },
 		{ "include": "#identifiers" }
 	],
 	"repository": {
 		"comments": {
-			"name": "comment.ego",
 			"patterns": [
-				{ "include": "#doc_comment" },
-				{ "include": "#line_comment" },
-				{ "include": "#block_comment" }
+				{
+					"name": "comment.block.egov2",
+					"begin": "/\\*",
+					"end": "\\*/"
+				},
+				{
+					"name": "comment.line.double-slash.egov2",
+					"begin": "//",
+					"end": "\\n"
+				}
 			]
-		},
-		"operators": {
-			"name": "keyword.operator.ego",
-			"match": "\\b(\\+\\+|\\+|\\-\\-|\\-|\\/|\\*\\*|\\*|%%|%|!!|not|!|<=|>=|==|!=|<<<|<<|<|>>>|>>|>|>=>|<=<|nand|and|!&&|&&|~&|&|nor|or|!\\|\\||\\|\\||~\\||\\||xnor|xor|!\\^\\^|\\^\\^|~\\^|\\^|~~|~|\\?|:|,|#|@|\\$|->(@|&)*|\\.\\.\\.|\\.\\.|\\.(@|&)*|is|of|in|step|sizeof|typeof|instanceof|as|default|_|asm)\\b"
 		},
 		"strings": {
-			"name": "string.ego",
 			"patterns": [
-				{ "include": "#line_string" },
-				{ "include": "#multiline_string" },
-				{ "include": "#character_literal" }
+				{
+					"name": "string.quoted.single.egov2",
+					"begin": "'",
+					"end": "'",
+					"patterns": [
+						{
+							"name": "constant.character.escape.egov2",
+							"match": "(\\\\u[0-9a-fA-F]{4}|\\\\[\\\\\"'bfnrtv0])"
+						}
+					]
+				},
+				{
+					"name": "string.quoted.double.egov2",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.egov2",
+							"match": "\\\\."
+						},
+						{
+							"name": "variable.interpolation.egov2",
+							"match": "\\$\\w+"
+						},
+						{
+							"begin": "\\$\\{",
+							"end": "\\}",
+							"name": "variable.interpolation.expression.egov2",
+							"patterns": [{ "include": "source.ego" }]
+						}
+					]
+				},
+				{
+					"name": "string.quoted.backtick.egov2",
+					"begin": "`",
+					"end": "`",
+					"patterns": [
+						{
+							"name": "multiline.dollar.egov2",
+							"match": "\\$\\$"
+						},
+						{
+							"name": "variable.interpolation.egov2",
+							"match": "\\$\\w+"
+						},
+						{
+							"begin": "\\$\\{",
+							"end": "\\}",
+							"name": "variable.interpolation.expression.egov2",
+							"patterns": [{ "include": "source.ego" }]
+						}
+					]
+				}
 			]
-		},
-		"numbers": {
-			"name": "constant.numeric.ego",
-			"match": "\\b(0x[0-9a-fA-F]+|0b[01]+|[0-9]+(\\.[0-9]+)?([eE][+-]?[0-9]+)?)\\b"
 		},
 		"keywords": {
 			"patterns": [
 				{
-					"name": "keyword.control.ego",
-					"match": "\\b(while|for|do|if|else|switch|try|catch|finally|break|<\\||continue|\\|>|return|ret|=>|throw|=>>|trickle|~>|goto|->>|await|yield)\\b"
-				},
-				{
-					"name": "keyword.other.ego",
-					"match": "\\b(module|import|export|private|protected|internal|public)\\b"
-				},
-				{
-					"name": "storage",
-					"match": "\\b(get|set|class|record|object|exception|annotation|interface|enum|alias)\\b"
-				},
-				{
-					"name": "storage.modifier.ego",
-					"match": "\\b(const|own|volatile|transient|static|abstract|virtual|override|async)\\b"
-				},
-				{
-					"name": "keyword.operator.new",
-					"match": "\\b(new|delete|unique|shared|disown|own)\\b"
-				},
-				{
-					"name": "variable.language.ego",
-					"match": "\\b(global|super|this|value|field)\\b"
+					"name": "keyword.control.egov2",
+					"match": "\\b(module|import|export|as|class|use|interface|impl|this|var|loop|while|for|in|do|if|else|when|break|continue|yield|ret|trickle|jmp|mut|pub|pro|static|virtual|override|abstract|new|unique|shared|delete|is)\\b"
 				}
 			]
 		},
-		"types":{
+		"operators": {
 			"patterns": [
 				{
-					"name": "storage.type.ego",
-					"match": "\\b(void|bool|i(8|16|32|64|128)|u(8|16|32|64|128)|float|double|char|char16|string|real|complex|vec2|vec3|vec4|mat2|mat3|mat4|regex|var|function)\\b"
+					"name": "keyword.operator.egov2",
+					"match": "(\\.|-|:|\\[|\\]|<|>|@|#|\\+|!|~|\\*|&|\\||\\^|=|/|%)"
 				}
 			]
 		},
-		"identifiers":{
+		"literals": {
 			"patterns": [
 				{
-					"name": "identifier.ego",
+					"name": "constant.numeric.egov2",
+					"match": "\\b(([1-9][0-9]*|0)\\.[0-9]*(e[1-9][0-9]*)?f?|([1-9][0-9]*|0)u?[bsl]?|0x[0-9a-fA-F]+|0b[0-1]+)\\b"
+				},
+				{
+					"name": "constant.language.egov2",
+					"match": "\\b(null|true|false)\\b"
+				}
+			]
+		},
+		"types": {
+			"patterns": [
+				{
+					"name": "storage.type.egov2",
+					"match": "\\b(var|bool|i8|i16|i32|i64|u8|u16|u32|u64|f32|f64|char|str|void)\\b"
+				}
+			]
+		},
+		"identifiers": {
+			"patterns": [
+				{
+					"name": "entity.name.function.egov2",
 					"match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b"
 				}
 			]
-		},
-		"doc_comment": {
-			"name": "comment.block.documentation.ego",
-			"begin": "/\\*\\*",
-			"end": "\\*/"
-		},
-		"line_comment": {
-			"name": "comment.line.double-slash.ego",
-			"begin": "//",
-			"end": "\\n"
-		},
-		"block_comment": {
-			"name": "comment.block.ego",
-			"begin": "/\\*",
-			"end": "\\*/"
-		},
-		"character_literal":{
-			"name": "string.quoted.single.ego",
-			"begin": "'",
-			"end": "'",
-			"patterns": [
-				{ "include": "#escape_sequence" },
-				{ "include": "#character" }
-			]
-		},
-		"character": {
-			"name": "constant.character",
-			"match": "."
-		},
-		"escape_sequence": {
-			"name": "constant.character.escape.ego",
-			"match": "\\\\(.|u[0-9a-fA-F]{4})"
-		},
-		"line_string": {
-			"name": "string.quoted.double.line.ego",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{ "include": "#escape_sequence" },
-				{ "include": "#interpolation" },
-				{ "include": "#variable_reference" }
-			]
-		},
-		"multiline_string": {
-			"name": "string.other.ego",
-			"begin": "`",
-			"end": "`",
-			"patterns": [
-				{ "include": "#interpolation" },
-				{ "include": "#variable_reference" }
-			]
-		},
-		"interpolation":{
-			"name": "variable.ego",
-			"begin": "\\$\\{",
-			"end": "\\}",
-			"patterns": [
-				{ "include": "#comments" },
-				{ "include": "#strings" },
-				{ "include": "#numbers" },
-				{ "include": "#keywords" },
-				{ "include": "#types" },
-				{ "include": "#identifiers" }
-			]
-		},
-		"variable_reference":{
-			"name": "variable.ego",
-			"match": "\\$(\\$|[a-zA-Z_][a-zA-Z0-9_]*\\b)"
 		}
-	},
-	"scopeName": "source.ego"
+	}
 }
