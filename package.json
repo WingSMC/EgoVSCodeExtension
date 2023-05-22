@@ -2,7 +2,7 @@
     "name": "ego",
     "displayName": "Ego",
     "description": "Ego language features",
-    "version": "0.0.1",
+    "version": "2.0.0",
     "engines": {
         "vscode": "^1.67.0"
     },
