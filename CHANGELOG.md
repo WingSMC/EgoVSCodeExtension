@@ -1,9 +1,15 @@
 # Change Log
 
-All notable changes to the "ego" extension will be documented in this file.
+## [1.0.0] - 2022-05-27
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+- Initial release with Ego 1.0 syntax
 
-## [Unreleased]
+## [2.0.0] - 2023-05-22
 
-- Initial release
+### Added
+
+- Added support for Ego 2.0 syntax
+
+### Removed
+
+- Removed support for Ego 1.0 syntax
