@@ -1,4 +1,5 @@
 # Ego
+
 The only extension available for the Ego language
 
 ## Features
@@ -9,12 +10,9 @@ The only extension available for the Ego language
 
 ## Requirements
 
-
 ## Extension Settings
 
-
 ## Known Issues
-
 
 ## Release Notes
 
