@@ -62,12 +62,16 @@
 				},
 				{
 					"name": "string.quoted.backtick.egov2",
-					"begin": "`",
-					"end": "`",
+					"begin": "```",
+					"end": "`?```",
 					"patterns": [
 						{
-							"name": "multiline.dollar.egov2",
+							"name": "constant.character.escape.dollar.egov2",
 							"match": "\\$\\$"
+						},
+						{
+							"name": "constant.character.escape.backtick.egov2",
+							"match": "\\$?`"
 						},
 						{
 							"name": "variable.interpolation.egov2",
