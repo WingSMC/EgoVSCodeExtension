@@ -42,5 +42,8 @@
 				"path": "./syntaxes/ego.tmLanguage.json"
 			}
 		]
+	},
+	"scripts": {
+		"package": "vsce package"
 	}
 }
