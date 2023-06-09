@@ -139,7 +139,7 @@
 	"function": {
 		"prefix": "fn",
 		"body": [
-			"${1:pub} ${2:type} fnName(${3:args}) {",
+			"${1:pub} ${2:type} ${3:fnName}(${4:args}) {",
 			"\t$0",
 			"}"
 		],
@@ -148,7 +148,7 @@
 	"function shorthand": {
 		"prefix": "fn-ret",
 		"body": [
-			"${1:pub} ${2:type} fnName(${3:args}) => $0"
+			"${1:pub} ${2:type} ${3:fnName}(${4:args}) => $0"
 		],
 		"description": "function shorthand"
 	},
