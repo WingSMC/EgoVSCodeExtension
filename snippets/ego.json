@@ -1,0 +1,198 @@
+{
+	"infinite loop": {
+		"prefix": "loop",
+		"body": [
+			"loop ${1}{",
+			"\t$0",
+			"}"
+		],
+		"description": "loop with count"
+	},
+	"loop with iteration count": {
+		"prefix": "loopi",
+		"body": [
+			"loop ${1}; ${2:i} ${3:= 0} {",
+			"\t$0",
+			"}"
+		],
+		"description": "loop with count and iteration variable"
+	},
+	"for in range": {
+		"prefix": "forrange",
+		"body": [
+			"for ${1:i} in ${2:0}..${3:10} {",
+			"\t$0",
+			"}"
+		],
+		"description": "for in range"
+	},
+	"for in iterable": {
+		"prefix": "foriter",
+		"body": [
+			"for ${1:el} in ${2:list}${3:; i = 0} {",
+			"\t$0",
+			"}"
+		],
+		"description": "for in iterable"
+	},
+	"while": {
+		"prefix": "while",
+		"body": [
+			"while ${1:condition} {",
+			"\t$0",
+			"}"
+		],
+		"description": "while loop"
+	},
+	"do-while": {
+		"prefix": "dowhile",
+		"body": [
+			"do {",
+			"\t$0",
+			"} while ${1:condition}"
+		],
+		"description": "do-while loop"
+	},
+	"if": {
+		"prefix": "if",
+		"body": [
+			"if ${1:condition} {",
+			"\t$0",
+			"}"
+		],
+		"description": "if statement"
+	},
+	"if-else": {
+		"prefix": "ifelse",
+		"body": [
+			"if ${1:condition} {",
+			"\t$0",
+			"} else {",
+			"\t",
+			"}"
+		],
+		"description": "if-else statement"
+	},
+	"if-else if-else": {
+		"prefix": "ifelseif",
+		"body": [
+			"if ${1:condition} {",
+			"\t$0",
+			"} else if ${2:condition} {",
+			"\t",
+			"} else {",
+			"\t",
+			"}"
+		],
+		"description": "if-else if-else statement"
+	},
+	"class": {
+		"prefix": "class",
+		"body": [
+			"${1:pub} class ${2:Name} {",
+			"\t$0",
+			"}"
+		],
+		"description": "class"
+	},
+	"interface": {
+		"prefix": "interface",
+		"body": [
+			"${1:pub} interface ${2:Name} {",
+			"\t$0",
+			"}"
+		],
+		"description": "interface"
+	},
+	"impl": {
+		"prefix": "impl",
+		"body": [
+			"${1:pub} ${2:Class} impl ${3:Interface} {",
+			"\t$0",
+			"}"
+		],
+		"description": "impl"
+	},
+	"main": {
+		"prefix": "main",
+		"body": [
+			"i32 main(i32 argc, ##char argv) {",
+			"\t$0",
+			"}"
+		],
+		"description": "main"
+	},
+	"ret": {
+		"prefix": "ret",
+		"body": [
+			"ret ${1:0}"
+		],
+		"description": "return"
+	},
+	"function header": {
+		"prefix": "fn-header",
+		"body": [
+			"${1:pub} ${2:type} fnName(${3:args})"
+		],
+		"description": "function header"
+	},
+	"function": {
+		"prefix": "fn",
+		"body": [
+			"${1:pub} ${2:type} fnName(${3:args}) {",
+			"\t$0",
+			"}"
+		],
+		"description": "function"
+	},
+	"function shorthand": {
+		"prefix": "fn-ret",
+		"body": [
+			"${1:pub} ${2:type} fnName(${3:args}) => $0"
+		],
+		"description": "function shorthand"
+	},
+	"ctor": {
+		"prefix": "ctor",
+		"body": [
+			"${1:pub} (@this, ${2:args}) {",
+			"\t$0",
+			"}"
+		],
+		"description": "constructor"
+	},
+	"dtor": {
+		"prefix": "dtor",
+		"body": [
+			"${1:pub} ~(@this) {",
+			"\t$0",
+			"}"
+		],
+		"description": "destructor"
+	},
+	"import": {
+		"prefix": "import",
+		"body": [
+			"import {",
+			"\t${1:Module}",
+			"}"
+		],
+		"description": "import"
+	},
+	"export": {
+		"prefix": "export",
+		"body": [
+			"export {",
+			"\t${1:symbol} as ${2:alias}",
+			"}"
+		],
+		"description": "export"
+	},
+	"module": {
+		"prefix": "module",
+		"body": [
+			"${1:pub} module ${2:Name}\n\n$0"
+		],
+		"description": "module"
+	}
+}

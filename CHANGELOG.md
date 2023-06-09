@@ -13,3 +13,7 @@
 ### Removed
 
 - Removed support for Ego 1.0 syntax
+
+## [2.0.1] - 2023-06-08
+
+- Added code snippets

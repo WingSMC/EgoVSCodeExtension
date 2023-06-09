@@ -13,7 +13,7 @@
 	"publisher": "WingSMC",
 	"license": "MIT",
 	"icon": "public/logo.png",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"engines": {
 		"vscode": "^1.67.0"
 	},
@@ -40,6 +40,12 @@
 				"language": "ego",
 				"scopeName": "source.ego",
 				"path": "./syntaxes/ego.tmLanguage.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "ego",
+				"path": "./snippets/ego.json"
 			}
 		]
 	},

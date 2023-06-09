@@ -23,3 +23,7 @@ The only extension available for the Ego language
 ### 2.0.0
 
 - Changed syntax highlighting from V1 to V2
+
+### 2.0.1
+
+- Added code snippets
